@@ -3,6 +3,8 @@ KartFit Pro é uma aplicação web focada no gerenciamento e periodização de t
 
 "Não buscamos apenas hipertrofia, buscamos resistência à Força G, 'patada' de freio e reflexo."
 
+<a href="https://danilo-vicentin-silva.github.io/KartFit/" target="_blank"> Acesse clicando aqui </a>
+
 📱 Screenshots
 
 <div style="display: flex; gap: 10px;"> <img src="assets/images/tela-agenda.png" alt="Agenda Semanal" width="45%"> <img src="assets/images/tela-treino.png" alt="Execução do Treino" width="45%"> </div>
