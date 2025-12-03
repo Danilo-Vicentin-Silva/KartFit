@@ -5,7 +5,7 @@ KartFit Pro é uma aplicação web focada no gerenciamento e periodização de t
 
 📱 Screenshots
 
-<div style="display: flex; gap: 10px;"> <img src="./assets/images/tela-agenda" alt="Agenda Semanal" width="45%"> <img src="./assets/images/tela-treino" alt="Execução do Treino" width="45%"> </div>
+<div style="display: flex; gap: 10px;"> <img src="assets/images/tela-agenda.png" alt="Agenda Semanal" width="45%"> <img src="assets/images/tela-treino.png" alt="Execução do Treino" width="45%"> </div>
 
 🛠️ Funcionalidades
 📅 Planejamento Semanal (Planner): Interface intuitiva para distribuir os módulos de treino durante a semana.
