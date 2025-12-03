@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KartFit: Pro</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicons/site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="material-icons-round icon-logo">speed</span>
+        <div>
+          <h1>KartFit <span class="badge">PRO</span></h1>
+        </div>
+      </div>
+      <div class="current-day-badge" id="header-day-display">HOJE</div>
+    </header>
+
+    <main class="container">
+      <section id="view-planner" class="view active">
+        <h2 class="section-title">Planejamento Semanal</h2>
+        <div id="week-grid" class="week-grid"></div>
+      </section>
+
+      <section id="view-workout" class="view">
+        <div id="workout-content"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" onclick="app.switchView('planner')">
+        <span class="material-icons-round">calendar_today</span>
+        <span>Agenda</span>
+      </button>
+      <button class="nav-item" onclick="app.switchView('workout')">
+        <span class="material-icons-round">fitness_center</span>
+        <span>Treinar Hoje</span>
+      </button>
+    </nav>
+
+    <div id="selection-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Definir treino para <span id="modal-day-label"></span></h3>
+        <div class="module-options" id="module-options"></div>
+        <button class="btn-cancel" onclick="app.closeModal()">Cancelar</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

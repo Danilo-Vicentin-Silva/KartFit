@@ -1,0 +1,354 @@
+:root {
+  --bg: #0d0d0f;
+  --surface: #1a1a1e;
+  --surface-hover: #25252b;
+  --primary: #ccee00; /* Amarelo Neon */
+  --accent: #00d4ff; /* Azul Neon */
+  --text: #ffffff;
+  --text-muted: #888899;
+  --danger: #ff4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Exo 2", sans-serif;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  padding-bottom: 90px; /* Espaço para nav bar */
+}
+
+/* Header */
+.app-header {
+  padding: 15px 20px;
+  background: rgba(13, 13, 15, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--surface-hover);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-logo {
+  font-size: 2rem;
+  color: var(--primary);
+}
+.badge {
+  background: var(--primary);
+  color: #000;
+  font-size: 0.6rem;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-style: normal;
+}
+.current-day-badge {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  border: 1px solid var(--surface-hover);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* Container & Views */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.view {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.view.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+  border-left: 3px solid var(--primary);
+  padding-left: 10px;
+}
+
+/* Grid da Agenda */
+.week-grid {
+  display: grid;
+  gap: 10px;
+}
+.day-card {
+  background: var(--surface);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.day-card:active {
+  transform: scale(0.98);
+  background: var(--surface-hover);
+}
+.day-label {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.workout-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Cores dos Módulos */
+.mod-A {
+  color: #ff0055 !important;
+  border-left-color: #ff0055 !important;
+}
+.mod-B {
+  color: #00d4ff !important;
+  border-left-color: #00d4ff !important;
+}
+.mod-C {
+  color: #ccee00 !important;
+  border-left-color: #ccee00 !important;
+}
+.mod-D {
+  color: #aa00ff !important;
+  border-left-color: #aa00ff !important;
+}
+
+/* EXECUÇÃO (Checklist) */
+.workout-header {
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid var(--surface-hover);
+}
+.workout-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+.workout-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.exercise-item {
+  background: var(--surface);
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* Checkbox Estilizado */
+.check-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  top: 2px;
+}
+.check-wrapper input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+}
+.custom-check {
+  width: 100%;
+  height: 100%;
+  background: #333;
+  border-radius: 6px;
+  border: 2px solid #555;
+  position: absolute;
+  transition: 0.2s;
+}
+.check-wrapper input:checked ~ .custom-check {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.check-wrapper input:checked ~ .custom-check::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.ex-info {
+  flex-grow: 1;
+}
+.ex-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  display: block;
+}
+.ex-sets {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-family: "Exo 2";
+  margin-bottom: 8px;
+  display: block;
+}
+
+.btn-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4444;
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.btn-youtube:hover {
+  background: #ff4444;
+  color: white;
+}
+
+/* Estado Vazio/Descanso */
+.rest-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.rest-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #151518;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  z-index: 20;
+}
+.nav-item {
+  background: none;
+  border: none;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+.nav-item.active {
+  color: var(--primary);
+}
+.nav-item span.material-icons-round {
+  font-size: 1.5rem;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: var(--surface);
+  width: 100%;
+  padding: 25px;
+  border-radius: 20px 20px 0 0;
+  animation: slideUp 0.3s;
+}
+.module-options {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+.module-btn {
+  background: #25252b;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+.btn-cancel {
+  width: 100%;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-weight: bold;
+  cursor: pointer;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
